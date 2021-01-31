@@ -6,7 +6,7 @@ signal all_friends_found
 const FLASHLIGHT_SCENE = preload("res://objects/Flashlight.tscn")
 
 const MOVE_DIRS = [ "move_right", "move_down", "move_left", "move_up" ]
-const MOVE_SPEED = 2000
+const MOVE_SPEED = 200
 
 const BASE_ORBS = 5
 const ORB_LIGHT_INCREASE = 0.05
