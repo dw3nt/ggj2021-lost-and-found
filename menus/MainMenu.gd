@@ -4,6 +4,7 @@ signal room_ready
 signal room_change_requested
 
 const GAME_SCENE = "res://rooms/Game.tscn"
+const CREDIT_SCENE = "res://menus/Credits.tscn"
 
 
 func _ready():
@@ -15,7 +16,7 @@ func _on_PlayButton_pressed():
 
 
 func _on_CreditButton_pressed():
-	pass
+	emit_signal('room_change_requested', CREDIT_SCENE)
 
 
 func _on_QuitButton_pressed():

@@ -1,0 +1,176 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://menus/BaseButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://menus/Credits.gd" type="Script" id=2]
+[ext_resource path="res://menus/SubTitleFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://menus/TextFont.tres" type="DynamicFont" id=4]
+
+[node name="Credits" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 318.0
+margin_top = 39.0
+margin_right = 705.0
+margin_bottom = 561.0
+custom_constants/separation = 50
+
+[node name="TitleVBox" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_right = 387.0
+margin_bottom = 64.0
+
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer/TitleVBox"]
+margin_right = 387.0
+margin_bottom = 64.0
+custom_fonts/font = ExtResource( 3 )
+text = "Credits"
+align = 1
+
+[node name="TextVBox" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 114.0
+margin_right = 387.0
+margin_bottom = 412.0
+custom_constants/separation = 50
+
+[node name="MusicCredit" type="VBoxContainer" parent="CenterContainer/VBoxContainer/TextVBox"]
+margin_right = 387.0
+margin_bottom = 140.0
+custom_constants/separation = 20
+
+[node name="MusicLabel" type="Label" parent="CenterContainer/VBoxContainer/TextVBox/MusicCredit"]
+margin_right = 387.0
+margin_bottom = 28.0
+custom_fonts/font = ExtResource( 4 )
+text = "Music"
+align = 1
+
+[node name="MusicCreditVBox" type="VBoxContainer" parent="CenterContainer/VBoxContainer/TextVBox/MusicCredit"]
+margin_top = 48.0
+margin_right = 387.0
+margin_bottom = 140.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/TextVBox/MusicCredit/MusicCreditVBox"]
+margin_right = 387.0
+margin_bottom = 28.0
+custom_constants/separation = 10
+alignment = 1
+
+[node name="SongButton" type="LinkButton" parent="CenterContainer/VBoxContainer/TextVBox/MusicCredit/MusicCreditVBox/HBoxContainer"]
+margin_right = 202.0
+margin_bottom = 28.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.996078, 1, 0.592157, 1 )
+text = "wanderlust"
+
+[node name="ByLabel" type="Label" parent="CenterContainer/VBoxContainer/TextVBox/MusicCredit/MusicCreditVBox/HBoxContainer"]
+margin_left = 212.0
+margin_right = 254.0
+margin_bottom = 28.0
+custom_fonts/font = ExtResource( 4 )
+text = "by"
+align = 1
+
+[node name="ArtistButton" type="LinkButton" parent="CenterContainer/VBoxContainer/TextVBox/MusicCredit/MusicCreditVBox/HBoxContainer"]
+margin_left = 264.0
+margin_right = 387.0
+margin_bottom = 28.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.996078, 1, 0.592157, 1 )
+text = "jim hall"
+
+[node name="LicenseLabel" type="Label" parent="CenterContainer/VBoxContainer/TextVBox/MusicCredit/MusicCreditVBox"]
+margin_top = 32.0
+margin_right = 387.0
+margin_bottom = 60.0
+custom_fonts/font = ExtResource( 4 )
+text = "licensed under"
+align = 1
+
+[node name="LicenseButton" type="LinkButton" parent="CenterContainer/VBoxContainer/TextVBox/MusicCredit/MusicCreditVBox"]
+margin_left = 116.0
+margin_top = 64.0
+margin_right = 271.0
+margin_bottom = 92.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.996078, 1, 0.592157, 1 )
+text = "cc by 4.0"
+
+[node name="EverythingElseCredit" type="VBoxContainer" parent="CenterContainer/VBoxContainer/TextVBox"]
+margin_top = 190.0
+margin_right = 387.0
+margin_bottom = 298.0
+custom_constants/separation = 20
+
+[node name="SectionLabel" type="Label" parent="CenterContainer/VBoxContainer/TextVBox/EverythingElseCredit"]
+margin_right = 387.0
+margin_bottom = 28.0
+custom_fonts/font = ExtResource( 4 )
+text = "everything else"
+align = 1
+
+[node name="MusicCreditVBox" type="VBoxContainer" parent="CenterContainer/VBoxContainer/TextVBox/EverythingElseCredit"]
+margin_top = 48.0
+margin_right = 387.0
+margin_bottom = 108.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/TextVBox/EverythingElseCredit/MusicCreditVBox"]
+margin_right = 387.0
+margin_bottom = 28.0
+custom_constants/separation = 10
+alignment = 1
+
+[node name="ByLabel" type="Label" parent="CenterContainer/VBoxContainer/TextVBox/EverythingElseCredit/MusicCreditVBox/HBoxContainer"]
+margin_left = 172.0
+margin_right = 214.0
+margin_bottom = 28.0
+custom_fonts/font = ExtResource( 4 )
+text = "by"
+align = 1
+
+[node name="LicenseLabel" type="Label" parent="CenterContainer/VBoxContainer/TextVBox/EverythingElseCredit/MusicCreditVBox"]
+margin_top = 32.0
+margin_right = 387.0
+margin_bottom = 60.0
+custom_fonts/font = ExtResource( 4 )
+text = "Rick simon"
+align = 1
+
+[node name="ButtonVBox" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_left = 93.0
+margin_top = 462.0
+margin_right = 293.0
+margin_bottom = 522.0
+size_flags_horizontal = 4
+custom_constants/separation = 40
+
+[node name="MenuButton" parent="CenterContainer/VBoxContainer/ButtonVBox" instance=ExtResource( 1 )]
+margin_bottom = 60.0
+text = "Menu"
+[connection signal="pressed" from="CenterContainer/VBoxContainer/TextVBox/MusicCredit/MusicCreditVBox/HBoxContainer/SongButton" to="." method="_on_SongButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/TextVBox/MusicCredit/MusicCreditVBox/HBoxContainer/ArtistButton" to="." method="_on_ArtistButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/TextVBox/MusicCredit/MusicCreditVBox/LicenseButton" to="." method="_on_LicenseButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ButtonVBox/MenuButton" to="." method="_on_MenuButton_pressed"]
