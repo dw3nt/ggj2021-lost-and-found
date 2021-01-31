@@ -27,6 +27,9 @@ func physics_process(delta):
 		moveDir = stepify(rad2deg(moveDir), 45)
 		
 		fsm.velocity = Vector2.RIGHT.rotated(deg2rad(moveDir)) * MOVE_SPEED
+		
+		if fsm.velocity.x != 0:
+			fsm.sprite.scale.x = sign(fsm.velocity.x)
 	else:
 		fsm.velocity = Vector2.ZERO
 	

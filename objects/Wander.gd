@@ -52,6 +52,9 @@ func setMoveDir():
 		if moveDir == Vector2.ZERO:
 			moveDir += notColliding[0].cast_to
 			
+		if moveDir.x != 0:
+			fsm.sprite.scale.x = sign(moveDir.x)
+			
 		fsm.velocity = moveDir.normalized() * MOVE_SPEED
 
 

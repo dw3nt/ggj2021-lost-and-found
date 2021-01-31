@@ -4,11 +4,16 @@ signal light_absorbed
 
 onready var stateWrap = $EnemyStateMachine
 onready var timer = $AbsorbTimer
+onready var sprite = $Sprite
 
 
 func _ready():
 	randomize()
 	stateWrap.ready()
+	
+	
+func _process(delta):
+	sprite.frame = randi() % sprite.hframes
 	
 	
 func _physics_process(delta):

@@ -6,7 +6,7 @@ signal all_friends_found
 const FLASHLIGHT_SCENE = preload("res://objects/Flashlight.tscn")
 
 const MOVE_DIRS = [ "move_right", "move_down", "move_left", "move_up" ]
-const MOVE_SPEED = 200
+const MOVE_SPEED = 2000
 
 const BASE_ORBS = 5
 const ORB_LIGHT_INCREASE = 0.05
@@ -20,6 +20,7 @@ var flashlight = null
 var friendsFound = 0 setget setFriendsFound
 
 onready var light = $Light2D
+onready var sprite = $Light2D/Sprite
 
 
 func _ready():
@@ -46,6 +47,9 @@ func getInput():
 		if Input.is_action_pressed(MOVE_DIRS[index]):
 			var rotateAmount = deg2rad(90 * index)
 			inputDir += Vector2.RIGHT.rotated(rotateAmount).round()
+	
+	if inputDir.x != 0:
+		sprite.flip_h = inputDir.x < 0
 			
 
 func setFriendsFound(val):

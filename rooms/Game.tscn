@@ -18,6 +18,7 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 5000, 5000 )
 
 [node name="Ambient" type="CanvasModulate" parent="."]
+visible = false
 color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
@@ -33,89 +34,6 @@ limit_right = 5000
 limit_bottom = 5000
 smoothing_enabled = true
 editor_draw_drag_margin = true
-
-[node name="Enemies" type="Node2D" parent="."]
-
-[node name="Enemy" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 2300, 3300 )
-
-[node name="Enemy2" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 1600, 3400 )
-
-[node name="Enemy19" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 1000, 4450 )
-
-[node name="Enemy21" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 2550, 4500 )
-
-[node name="Enemy20" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 600, 3450 )
-
-[node name="Enemy3" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 3800, 4900 )
-
-[node name="Enemy4" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 4500, 3850 )
-
-[node name="Enemy5" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 4050, 4200 )
-
-[node name="Enemy6" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 3900, 4650 )
-
-[node name="Enemy9" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 4400, 4800 )
-
-[node name="Enemy10" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 3850, 4350 )
-
-[node name="Enemy12" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 4850, 3950 )
-
-[node name="Enemy13" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 4350, 4150 )
-
-[node name="Enemy14" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 4100, 4800 )
-
-[node name="Enemy11" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 4800, 4650 )
-
-[node name="Enemy7" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 4700, 4250 )
-
-[node name="Enemy8" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 4150, 3850 )
-
-[node name="Enemy17" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 2750, 1050 )
-
-[node name="Enemy27" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 4550, 1400 )
-
-[node name="Enemy18" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 1700, 2100 )
-
-[node name="Enemy22" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 250, 2350 )
-
-[node name="Enemy23" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 1000, 1500 )
-
-[node name="Enemy24" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 800, 700 )
-
-[node name="Enemy25" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 1250, 700 )
-
-[node name="Enemy26" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 1750, 700 )
-
-[node name="Enemy16" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 4950, 4400 )
-
-[node name="Enemy15" parent="Enemies" instance=ExtResource( 4 )]
-position = Vector2( 4750, 4900 )
 
 [node name="Walls" type="Node2D" parent="."]
 
@@ -1349,47 +1267,110 @@ position = Vector2( 3000, 2450 )
 [node name="Friends" type="Node2D" parent="."]
 
 [node name="Friend" parent="Friends" instance=ExtResource( 6 )]
+modulate = Color( 0.584314, 0.917647, 0.52549, 1 )
 position = Vector2( 1700, 2400 )
 powerUp = "upFlashlightSize"
+lightColor = Color( 0.584314, 0.917647, 0.52549, 1 )
 
 [node name="Friend2" parent="Friends" instance=ExtResource( 6 )]
+modulate = Color( 0.952941, 0.815686, 0.447059, 1 )
 position = Vector2( 4450, 4450 )
 powerUp = "upFlashlightRange"
+lightColor = Color( 0.952941, 0.815686, 0.447059, 1 )
 
 [node name="Friend3" parent="Friends" instance=ExtResource( 6 )]
 position = Vector2( 4100, 550 )
 powerUp = "upFlashlightSpeed"
+lightColor = Color( 1, 1, 1, 1 )
 
 [node name="Friend4" parent="Friends" instance=ExtResource( 6 )]
+modulate = Color( 0.521569, 0.807843, 0.823529, 1 )
 position = Vector2( 1600, 2850 )
 powerUp = "addFlashlight"
-[connection signal="light_absorbed" from="Enemies/Enemy" to="." method="_on_Enemy_light_absorbed"]
-[connection signal="light_absorbed" from="Enemies/Enemy2" to="." method="_on_Enemy_light_absorbed"]
-[connection signal="light_absorbed" from="Enemies/Enemy19" to="." method="_on_Enemy_light_absorbed"]
-[connection signal="light_absorbed" from="Enemies/Enemy21" to="." method="_on_Enemy_light_absorbed"]
-[connection signal="light_absorbed" from="Enemies/Enemy20" to="." method="_on_Enemy_light_absorbed"]
-[connection signal="light_absorbed" from="Enemies/Enemy3" to="." method="_on_Enemy_light_absorbed"]
-[connection signal="light_absorbed" from="Enemies/Enemy4" to="." method="_on_Enemy_light_absorbed"]
-[connection signal="light_absorbed" from="Enemies/Enemy5" to="." method="_on_Enemy_light_absorbed"]
-[connection signal="light_absorbed" from="Enemies/Enemy6" to="." method="_on_Enemy_light_absorbed"]
-[connection signal="light_absorbed" from="Enemies/Enemy9" to="." method="_on_Enemy_light_absorbed"]
-[connection signal="light_absorbed" from="Enemies/Enemy10" to="." method="_on_Enemy_light_absorbed"]
-[connection signal="light_absorbed" from="Enemies/Enemy12" to="." method="_on_Enemy_light_absorbed"]
-[connection signal="light_absorbed" from="Enemies/Enemy13" to="." method="_on_Enemy_light_absorbed"]
-[connection signal="light_absorbed" from="Enemies/Enemy14" to="." method="_on_Enemy_light_absorbed"]
-[connection signal="light_absorbed" from="Enemies/Enemy11" to="." method="_on_Enemy_light_absorbed"]
-[connection signal="light_absorbed" from="Enemies/Enemy7" to="." method="_on_Enemy_light_absorbed"]
-[connection signal="light_absorbed" from="Enemies/Enemy8" to="." method="_on_Enemy_light_absorbed"]
-[connection signal="light_absorbed" from="Enemies/Enemy17" to="." method="_on_Enemy_light_absorbed"]
-[connection signal="light_absorbed" from="Enemies/Enemy27" to="." method="_on_Enemy_light_absorbed"]
-[connection signal="light_absorbed" from="Enemies/Enemy18" to="." method="_on_Enemy_light_absorbed"]
-[connection signal="light_absorbed" from="Enemies/Enemy22" to="." method="_on_Enemy_light_absorbed"]
-[connection signal="light_absorbed" from="Enemies/Enemy23" to="." method="_on_Enemy_light_absorbed"]
-[connection signal="light_absorbed" from="Enemies/Enemy24" to="." method="_on_Enemy_light_absorbed"]
-[connection signal="light_absorbed" from="Enemies/Enemy25" to="." method="_on_Enemy_light_absorbed"]
-[connection signal="light_absorbed" from="Enemies/Enemy26" to="." method="_on_Enemy_light_absorbed"]
-[connection signal="light_absorbed" from="Enemies/Enemy16" to="." method="_on_Enemy_light_absorbed"]
-[connection signal="light_absorbed" from="Enemies/Enemy15" to="." method="_on_Enemy_light_absorbed"]
+lightColor = Color( 0.521569, 0.807843, 0.823529, 1 )
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 2300, 3300 )
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 1600, 3400 )
+
+[node name="Enemy19" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 1000, 4450 )
+
+[node name="Enemy21" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 2550, 4500 )
+
+[node name="Enemy20" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 600, 3450 )
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 3800, 4900 )
+
+[node name="Enemy4" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 4500, 3850 )
+
+[node name="Enemy5" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 4050, 4200 )
+
+[node name="Enemy6" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 3900, 4650 )
+
+[node name="Enemy9" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 4400, 4800 )
+
+[node name="Enemy10" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 3850, 4350 )
+
+[node name="Enemy12" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 4850, 3950 )
+
+[node name="Enemy13" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 4350, 4150 )
+
+[node name="Enemy14" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 4100, 4800 )
+
+[node name="Enemy11" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 4800, 4650 )
+
+[node name="Enemy7" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 4700, 4250 )
+
+[node name="Enemy8" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 4150, 3850 )
+
+[node name="Enemy17" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 2750, 1050 )
+
+[node name="Enemy27" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 4550, 1400 )
+
+[node name="Enemy18" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 1700, 2100 )
+
+[node name="Enemy22" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 250, 2350 )
+
+[node name="Enemy23" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 1000, 1500 )
+
+[node name="Enemy24" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 800, 700 )
+
+[node name="Enemy25" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 1250, 700 )
+
+[node name="Enemy26" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 1750, 700 )
+
+[node name="Enemy16" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 4950, 4400 )
+
+[node name="Enemy15" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 4750, 4900 )
 [connection signal="orb_collected" from="Orbs/Orb2" to="." method="_on_Orb_orb_collected"]
 [connection signal="orb_collected" from="Orbs/Orb4" to="." method="_on_Orb_orb_collected"]
 [connection signal="orb_collected" from="Orbs/Orb6" to="." method="_on_Orb_orb_collected"]
@@ -1430,3 +1411,30 @@ powerUp = "addFlashlight"
 [connection signal="orb_collected" from="Orbs/Orb8" to="." method="_on_Orb_orb_collected"]
 [connection signal="orb_collected" from="Orbs/Orb9" to="." method="_on_Orb_orb_collected"]
 [connection signal="orb_collected" from="Orbs/Orb5" to="." method="_on_Orb_orb_collected"]
+[connection signal="light_absorbed" from="Enemies/Enemy" to="." method="_on_Enemy_light_absorbed"]
+[connection signal="light_absorbed" from="Enemies/Enemy2" to="." method="_on_Enemy_light_absorbed"]
+[connection signal="light_absorbed" from="Enemies/Enemy19" to="." method="_on_Enemy_light_absorbed"]
+[connection signal="light_absorbed" from="Enemies/Enemy21" to="." method="_on_Enemy_light_absorbed"]
+[connection signal="light_absorbed" from="Enemies/Enemy20" to="." method="_on_Enemy_light_absorbed"]
+[connection signal="light_absorbed" from="Enemies/Enemy3" to="." method="_on_Enemy_light_absorbed"]
+[connection signal="light_absorbed" from="Enemies/Enemy4" to="." method="_on_Enemy_light_absorbed"]
+[connection signal="light_absorbed" from="Enemies/Enemy5" to="." method="_on_Enemy_light_absorbed"]
+[connection signal="light_absorbed" from="Enemies/Enemy6" to="." method="_on_Enemy_light_absorbed"]
+[connection signal="light_absorbed" from="Enemies/Enemy9" to="." method="_on_Enemy_light_absorbed"]
+[connection signal="light_absorbed" from="Enemies/Enemy10" to="." method="_on_Enemy_light_absorbed"]
+[connection signal="light_absorbed" from="Enemies/Enemy12" to="." method="_on_Enemy_light_absorbed"]
+[connection signal="light_absorbed" from="Enemies/Enemy13" to="." method="_on_Enemy_light_absorbed"]
+[connection signal="light_absorbed" from="Enemies/Enemy14" to="." method="_on_Enemy_light_absorbed"]
+[connection signal="light_absorbed" from="Enemies/Enemy11" to="." method="_on_Enemy_light_absorbed"]
+[connection signal="light_absorbed" from="Enemies/Enemy7" to="." method="_on_Enemy_light_absorbed"]
+[connection signal="light_absorbed" from="Enemies/Enemy8" to="." method="_on_Enemy_light_absorbed"]
+[connection signal="light_absorbed" from="Enemies/Enemy17" to="." method="_on_Enemy_light_absorbed"]
+[connection signal="light_absorbed" from="Enemies/Enemy27" to="." method="_on_Enemy_light_absorbed"]
+[connection signal="light_absorbed" from="Enemies/Enemy18" to="." method="_on_Enemy_light_absorbed"]
+[connection signal="light_absorbed" from="Enemies/Enemy22" to="." method="_on_Enemy_light_absorbed"]
+[connection signal="light_absorbed" from="Enemies/Enemy23" to="." method="_on_Enemy_light_absorbed"]
+[connection signal="light_absorbed" from="Enemies/Enemy24" to="." method="_on_Enemy_light_absorbed"]
+[connection signal="light_absorbed" from="Enemies/Enemy25" to="." method="_on_Enemy_light_absorbed"]
+[connection signal="light_absorbed" from="Enemies/Enemy26" to="." method="_on_Enemy_light_absorbed"]
+[connection signal="light_absorbed" from="Enemies/Enemy16" to="." method="_on_Enemy_light_absorbed"]
+[connection signal="light_absorbed" from="Enemies/Enemy15" to="." method="_on_Enemy_light_absorbed"]
