@@ -6,7 +6,7 @@
 polygon = PoolVector2Array( -50, -50, -50, 50, 50, 50, 50, -50 )
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 45, 45 )
+extents = Vector2( 50, 50 )
 
 [node name="Wall" type="StaticBody2D"]
 collision_layer = 2

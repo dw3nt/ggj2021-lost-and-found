@@ -30,7 +30,6 @@ func ready():
 	
 	
 func change_state(newStateName, params):
-	print(newStateName)
 	update_history(newStateName)
 	state.exit_state()
 	state = get_node(newStateName)
