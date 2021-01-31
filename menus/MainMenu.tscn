@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://menus/BaseButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://fonts/Chewer.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://menus/MainMenu.gd" type="Script" id=3]
+[ext_resource path="res://menus/TitleFont.tres" type="DynamicFont" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 84
+font_data = ExtResource( 2 )
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 221.0
+margin_top = 78.0
+margin_right = 802.0
+margin_bottom = 522.0
+custom_constants/separation = 100
+
+[node name="TitleVBox" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_right = 581.0
+margin_bottom = 84.0
+
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer/TitleVBox"]
+margin_right = 581.0
+margin_bottom = 84.0
+custom_fonts/font = SubResource( 1 )
+text = "Light Finder"
+
+[node name="ButtonVBox" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_left = 190.0
+margin_top = 184.0
+margin_right = 390.0
+margin_bottom = 444.0
+size_flags_horizontal = 4
+custom_constants/separation = 40
+
+[node name="PlayButton" parent="CenterContainer/VBoxContainer/ButtonVBox" instance=ExtResource( 1 )]
+margin_bottom = 60.0
+text = "Play"
+
+[node name="CreditButton" parent="CenterContainer/VBoxContainer/ButtonVBox" instance=ExtResource( 1 )]
+margin_top = 100.0
+margin_bottom = 160.0
+text = "Credit"
+
+[node name="QuitButton" parent="CenterContainer/VBoxContainer/ButtonVBox" instance=ExtResource( 1 )]
+margin_top = 200.0
+margin_bottom = 260.0
+custom_fonts/font = ExtResource( 4 )
+text = "Quit"
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ButtonVBox/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ButtonVBox/CreditButton" to="." method="_on_CreditButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ButtonVBox/QuitButton" to="." method="_on_QuitButton_pressed"]

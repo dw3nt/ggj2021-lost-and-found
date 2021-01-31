@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 signal player_died
+signal all_friends_found
 
 const FLASHLIGHT_SCENE = preload("res://objects/Flashlight.tscn")
 
@@ -11,10 +12,12 @@ const BASE_ORBS = 5
 const ORB_LIGHT_INCREASE = 0.05
 const MAX_ORBS = 15
 const MIN_ORBS = 0
+const MAX_FRIENDS = 4
 
 var orbs setget setOrbs
 var inputDir = Vector2.ZERO
 var flashlight = null
+var friendsFound = 0 setget setFriendsFound
 
 onready var light = $Light2D
 
@@ -44,22 +47,35 @@ func getInput():
 			var rotateAmount = deg2rad(90 * index)
 			inputDir += Vector2.RIGHT.rotated(rotateAmount).round()
 			
+
+func setFriendsFound(val):
+	friendsFound = val
+	if friendsFound == MAX_FRIENDS:
+		emit_signal('all_friends_found')
+			
 			
 func addFlashlight():
 	flashlight = FLASHLIGHT_SCENE.instance()
 	call_deferred("add_child", flashlight)
+	self.friendsFound += 1
 	
 
 func upFlashlightSpeed():
 	if flashlight:
 		flashlight.increaseRotateSpeed()
+		
+	self.friendsFound += 1
 	
 	
 func upFlashlightRange():
 	if flashlight:
 		flashlight.increaseRange()
+		
+	self.friendsFound += 1
 	
 	
 func upFlashlightSize():
 	if flashlight:
 		flashlight.increaseWidth()
+		
+	self.friendsFound += 1

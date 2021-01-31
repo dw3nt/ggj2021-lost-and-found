@@ -18,7 +18,6 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 5000, 5000 )
 
 [node name="Ambient" type="CanvasModulate" parent="."]
-visible = false
 color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
