@@ -7,6 +7,7 @@ const ROOM_SIGNALS = {
 
 onready var animation = $AnimationPlayer
 onready var roomWrap = $Room
+onready var audio = $AudioStreamPlayer
 
 var currentRoom
 
@@ -14,6 +15,7 @@ var currentRoom
 func _ready():
 	currentRoom = roomWrap.get_child(0)
 	attachSignals(currentRoom)
+	audio.play()
 	
 	
 func attachSignals(room):

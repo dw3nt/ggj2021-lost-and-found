@@ -21,6 +21,9 @@ var friendsFound = 0 setget setFriendsFound
 
 onready var light = $Light2D
 onready var sprite = $Light2D/Sprite
+onready var friendFoundSfx = $FriendFoundSfx
+onready var deathSfx = $DeathSfx
+onready var winSfx = $WinSfx
 
 
 func _ready():
@@ -33,6 +36,7 @@ func setOrbs(val):
 	light.texture_scale = (orbs * ORB_LIGHT_INCREASE)
 	
 	if orbs <= 0:
+		deathSfx.play()
 		emit_signal('player_died')
 
 		
@@ -54,7 +58,9 @@ func getInput():
 
 func setFriendsFound(val):
 	friendsFound = val
+	friendFoundSfx.play()
 	if friendsFound == MAX_FRIENDS:
+		winSfx.play()
 		emit_signal('all_friends_found')
 			
 			
