@@ -1,0 +1,134 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://rooms/Game.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/background.png" type="Texture" id=2]
+[ext_resource path="res://objects/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/Enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/Wall.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/Friend.tscn" type="PackedScene" id=6]
+[ext_resource path="res://objects/Orb.tscn" type="PackedScene" id=7]
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Background" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Ambient" type="CanvasModulate" parent="."]
+visible = false
+color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 119.13, 181.403 )
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 503.823, 214.617 )
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 790.803, 419.603 )
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall2" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( 416.955, 484.643 )
+
+[node name="Wall4" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( 484.643, 435.005 )
+
+[node name="Wall6" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( 737.519, 187.951 )
+scale = Vector2( 3, 1 )
+
+[node name="Wall9" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( 724.223, 554.71 )
+scale = Vector2( 3, 1 )
+
+[node name="Wall7" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( 258.849, 336.427 )
+
+[node name="Wall8" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( 273.254, 79.3633 )
+
+[node name="Wall10" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( 959.126, 53.8785 )
+
+[node name="Wall11" parent="Walls" instance=ExtResource( 5 )]
+position = Vector2( 920.345, 396.261 )
+scale = Vector2( 1, 4 )
+
+[node name="Orbs" type="Node2D" parent="."]
+
+[node name="Orb" parent="Orbs" instance=ExtResource( 7 )]
+position = Vector2( 205.77, 460.275 )
+
+[node name="Orb4" parent="Orbs" instance=ExtResource( 7 )]
+position = Vector2( 166.06, 499.985 )
+
+[node name="Orb5" parent="Orbs" instance=ExtResource( 7 )]
+position = Vector2( 209.38, 510.815 )
+
+[node name="Orb6" parent="Orbs" instance=ExtResource( 7 )]
+position = Vector2( 268.945, 476.52 )
+
+[node name="Orb7" parent="Orbs" instance=ExtResource( 7 )]
+position = Vector2( 256.31, 438.615 )
+
+[node name="Orb8" parent="Orbs" instance=ExtResource( 7 )]
+position = Vector2( 193.135, 414.247 )
+
+[node name="Orb9" parent="Orbs" instance=ExtResource( 7 )]
+position = Vector2( 148.913, 445.835 )
+
+[node name="Orb2" parent="Orbs" instance=ExtResource( 7 )]
+position = Vector2( 422.37, 235.552 )
+
+[node name="Orb10" parent="Orbs" instance=ExtResource( 7 )]
+position = Vector2( 394.393, 291.508 )
+
+[node name="Orb11" parent="Orbs" instance=ExtResource( 7 )]
+position = Vector2( 482.838, 301.435 )
+
+[node name="Orb12" parent="Orbs" instance=ExtResource( 7 )]
+position = Vector2( 399.808, 359.195 )
+
+[node name="Orb13" parent="Orbs" instance=ExtResource( 7 )]
+position = Vector2( 472.008, 343.852 )
+
+[node name="Orb3" parent="Orbs" instance=ExtResource( 7 )]
+position = Vector2( 719.293, 524.352 )
+
+[node name="Friends" type="Node2D" parent="."]
+
+[node name="Friend" parent="Friends" instance=ExtResource( 6 )]
+position = Vector2( 677.615, 308.073 )
+powerUp = "upFlashlightSize"
+
+[node name="Friend2" parent="Friends" instance=ExtResource( 6 )]
+position = Vector2( 47.3343, 608.018 )
+powerUp = "upFlashlightRange"
+
+[node name="Friend3" parent="Friends" instance=ExtResource( 6 )]
+position = Vector2( 463.955, 644.583 )
+powerUp = "upFlashlightSpeed"
+
+[node name="Friend4" parent="Friends" instance=ExtResource( 6 )]
+position = Vector2( 315.479, 182.533 )
+powerUp = "addFlashlight"
+[connection signal="light_absorbed" from="Enemies/Enemy" to="." method="_on_Enemy_light_absorbed"]
+[connection signal="light_absorbed" from="Enemies/Enemy2" to="." method="_on_Enemy_light_absorbed"]
+[connection signal="orb_collected" from="Orbs/Orb" to="." method="_on_Orb_orb_collected"]
+[connection signal="orb_collected" from="Orbs/Orb4" to="." method="_on_Orb_orb_collected"]
+[connection signal="orb_collected" from="Orbs/Orb5" to="." method="_on_Orb_orb_collected"]
+[connection signal="orb_collected" from="Orbs/Orb6" to="." method="_on_Orb_orb_collected"]
+[connection signal="orb_collected" from="Orbs/Orb7" to="." method="_on_Orb_orb_collected"]
+[connection signal="orb_collected" from="Orbs/Orb8" to="." method="_on_Orb_orb_collected"]
+[connection signal="orb_collected" from="Orbs/Orb9" to="." method="_on_Orb_orb_collected"]
+[connection signal="orb_collected" from="Orbs/Orb2" to="." method="_on_Orb_orb_collected"]
+[connection signal="orb_collected" from="Orbs/Orb10" to="." method="_on_Orb_orb_collected"]
+[connection signal="orb_collected" from="Orbs/Orb11" to="." method="_on_Orb_orb_collected"]
+[connection signal="orb_collected" from="Orbs/Orb12" to="." method="_on_Orb_orb_collected"]
+[connection signal="orb_collected" from="Orbs/Orb13" to="." method="_on_Orb_orb_collected"]
+[connection signal="orb_collected" from="Orbs/Orb3" to="." method="_on_Orb_orb_collected"]
